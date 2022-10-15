@@ -1,30 +1,26 @@
 import java.util.ArrayList;
 
-public class Movimentacao {
-    public int id;
+public class Movimentacao extends Generic{
     public String data;
-    public ArrayList<Produto> produtos;
-    public ArrayList<Local> locais;
-    public String tipo;
-    public String quantidade;
+    public  Produto produto;
+    public  Local local;
+    public char tipo;
+    public int quantidadeMov;
 
     public static ArrayList<Movimentacao> movimentacoes = new ArrayList<>();
 
-    public Movimentacao(
-         String data,
-         String tipo,
-         String quantidade
-    ) {
-        this.id = this.getNextId();
-        this.data;
-        this.tipo;
-        this.quantidade;
-        this.locais= new ArrayList<>();
-        this.produtos= new ArrayList<>();
+    public Movimentacao(int id,String data,Produto produto,Local local,char tipo,int quantidadeMov){ 
+        super.id= id;
+        this.data= data;
+        this.tipo= tipo;
+        this.quantidadeMov= quantidadeMov;
+        this.local= local;
+        this.produto= produto;
         
         
         movimentacoes.add(this);
     }
+       
 
     public static Movimentacao verificarId(int id) throws Exception {
         for (Movimentacao movimentacao : movimentacoes) {
@@ -35,16 +31,16 @@ public class Movimentacao {
         throw new Exception("Produto não existe");
     }
 
-    private int getNextId() {
-        int id = 0;
+    // private int getNextId() {
+    //     int id = 0;
 
-        for (Movimentacao movimentacao : movimentacoes) {
-            if (movimentacao.id > id) {
-                id = movimentacao.id;
-            }
-        }
-        
-        return id + 1;
+    //     for (Movimentacao movimentacao : movimentacoes) {
+    //         if (movimentacao.id > id) {
+    //             id = movimentacao.id;
+    //         }
+    //     }
+         
+    //     return id + 1;
 
-    } 
+    // }
 }

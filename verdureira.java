@@ -13,6 +13,8 @@ public class verdureira {
             System.out.println("4 - Listar fabricante");
             System.out.println("5 - Cadastrar local de estoque");
             System.out.println("6 - Listar local de estoque");
+            System.out.println("7 - Cadastrar movimentação");
+            System.out.println("8 - Listar movimentação");
 
             try {
                 opcao = scanner.nextInt();
@@ -36,6 +38,12 @@ public class verdureira {
                     case 6:
                         listarlocalestoque();
                         break;
+                        case 7:
+                        cadastrarMovimentação(scanner);
+                        break;
+                    case 8:
+                        listarMovimentação();
+                        break;
                     default:
                         System.out.println("Opção inválida!");
                 }
@@ -53,11 +61,24 @@ public class verdureira {
             String descricao = scanner.next();
             System.out.println("Digite o tamanho do produto (grande, medio e ou pequeno): ");
             String tamanho = scanner.next();
+            switch(tamanho) {
+                case "P":
+                    tamanho = "Pequena";
+                    break;
+                case "M":
+                    tamanho = "Média";
+                    break;
+                case "G":
+                    tamanho = "Grande";
+                    break;
+                default:
+                throw new Exception("Tamanho inválido!");
+            }
             System.out.println("Digite a cor do produto: ");
             String cor = scanner.next();
 
             new Produto(descricao, tamanho, cor);
-        } catch (Exception e) {
+        } catch (Exception e){
             System.out.println("Erro ao cadastrar produto!");
         }
     }
@@ -75,10 +96,11 @@ public class verdureira {
 
     public static void cadastrarFabricantes(Scanner scanner) {
         try {
+            System.out.println("Digite o id do fabricante: ");
+            int id = scanner.nextInt();
             System.out.println("Digite o nome do fabricante: ");
             String nome = scanner.next();
-
-            new Fabricante(nome);
+            new Fabricante(id,nome);
         } catch (Exception e) {
             System.out.println("Erro ao cadastrar fabricante!");
         }
@@ -95,63 +117,60 @@ public class verdureira {
 
     public static void cadastrarLocalEstoque(Scanner scanner) {
         try {
-            System.out.println("Digite o ID do cliente: ");
-            int idCliente = scanner.nextInt();
-            System.out.println("Digite o numero da comanda: ");
-            int numero = scanner.nextInt();
-            System.out.println("Digite a data da comanda: ");
-            String data = scanner.next();
-
-            Comanda comanda = new Comanda(numero, data, Cliente.verificarId(idCliente));
-
-            System.out.println("Digite a quantidade pizzas: ");
+            System.out.println("Digite id do Local: ");
+            int id = scanner.nextInt();
+            System.out.println("Digite quantidade do Local: ");
             int quantidade = scanner.nextInt();
+            System.out.println("Digite detalhes do Local: ");
+            int detalhes = scanner.nextInt();       
 
-            for (int i = 0; i < quantidade; i++) {
-                System.out.println("Digite o tamanho da pizza: ");
-                String tamanho = scanner.next();
-                switch(tamanho) {
-                    case "P":
-                        tamanho = "Pequena";
-                        break;
-                    case "M":
-                        tamanho = "Média";
-                        break;
-                    case "G":
-                        tamanho = "Grande";
-                        break;
-                    default:
-                        throw new Exception("Tamanho inválido!");
-                }
-                System.out.println("Digite o ID do sabor: ");
-                int idSabor = scanner.nextInt();
+             new Local(id,quantidade,detalhes));
 
-                new Pizza(tamanho, Sabor.verificarId(idSabor), comanda);
-            }
-            
         } catch (Exception e) {
-            System.out.println("Erro ao cadastrar comanda!");
+            System.out.println("Erro ao cadastrar Local!");
         }
     }
 
     public static void listarlocalestoque() {
-        for (Comanda comanda : Comanda.comandas) {
+        for (Local local : Local.locais) {
             System.out.println(
-                "Id: " + comanda.id + "\n"
-                + "Numero: " + comanda.numero + "\n"
-                + "Data: " + comanda.data + "\n"
-                + "Cliente: " + comanda.cliente.nome + "\n"
+                "Id: " + local.id + "\n"
+                + "Quantidade: " + local.quantidade + "\n"
+                + "Detalhes: " + local.detalhes + "\n"    
             );
 
-            for (Pizza pizza : Pizza.pizzas) {
-                if (pizza.comanda.id == comanda.id) {
-                    System.out.println(
-                        "  Id Pizza: " + pizza.id + "\n"
-                        + " Tamanho: " + pizza.tamanho + "\n"
-                        + " Sabor: " + pizza.sabor.descricao + "\n"
-                    );
-                }
-            }
         }
+    }
+
+    public static void cadastrarMovimentação(Scanner scanner) {
+        try {
+            System.out.println("Digite id da movimentação: ");
+            int id = scanner.nextInt();
+            System.out.println("Digite a data da movimentação: ");
+           String data = scanner.next();
+            System.out.println("Digite o tipo da movimentação: ");
+            char detalhes = scanner.next(); 
+            for  
+            System.out.println("Digite a quantidade da movimentação: ");
+            int quantidadeMov = scanner.nextInt();  
+
+            new Movimentacao(id, data,detalhes,quantidadeMov);
+        } catch (Exception e) {
+            System.out.println("Erro ao cadastrar movimentação!");
+        }
+    }
+
+    public static void listarMovimentação() {
+        for (Movimentacao movimentacao : Movimentacao.movimentacoes) {
+            System.out.println(
+                "Id: " + movimentacao.id + "\n"
+                + "Data: " + movimentacao.data + "\n"
+                + "Detalhes: " + movimentacao.detalhes + "\n"  
+                + "Quantidade: " + movimentacao.quantidadeMov + "\n" 
+            );
+        }
+    }
+    foreach(Produto produto : Produto.produtos){
+        System.out.println(produto.id);
     }
 }

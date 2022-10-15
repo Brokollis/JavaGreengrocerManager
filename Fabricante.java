@@ -1,15 +1,15 @@
 import java.util.ArrayList;
 
-public class Fabricante {
-    public int id;
+public class Fabricante extends Generic {
     public String nome;
 
     public static ArrayList<Fabricante> fabricantes = new ArrayList<>();
 
     public Fabricante(
-        String nome
+         int id,
+         String nome
     ) {
-        this.id = this.getNextId();
+        super.id= id;
         this.nome = nome;
         
         fabricantes.add(this);
@@ -24,16 +24,16 @@ public class Fabricante {
         throw new Exception("Produto não existe");
     }
 
-    private int getNextId() {
-        int id = 0;
+    // private int getNextId() {
+    //     int id = 0;
 
-        for (Fabricante fabricante : fabricantes) {
-            if (fabricante.id > id) {
-                id = fabricante.id;
-            }
-        }
+    //     for (Fabricante fabricante : fabricantes) {
+    //         if (fabricante.id > id) {
+    //             id = fabricante.id;
+    //         }
+    //     }
         
-        return id + 1;
+    //     return id + 1;
 
-    } 
+    // } 
 }

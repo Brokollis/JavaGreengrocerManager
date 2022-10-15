@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 
-public class Local {
-    public int id;
+public class Local extends Generic {
     public String detalhes;
     public String quantidade;
     public ArrayList<Produto> produtos;
@@ -12,7 +11,7 @@ public class Local {
          String detalhes,
          String quantidade
     ) {
-        this.id = this.getNextId();
+        super.id= id;
         this.detalhes = detalhes;
         this.quantidade = quantidade;
         this.produtos = new ArrayList<>();

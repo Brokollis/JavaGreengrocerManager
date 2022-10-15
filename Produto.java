@@ -1,7 +1,6 @@
 import java.util.ArrayList;
 
-public class Produto {
-    public int id;
+public class Produto extends Generic {
     public String descricao;
     public String tamanho;
     public String cor;
@@ -14,7 +13,7 @@ public class Produto {
         String tamanho,
         String cor
     ) {
-        this.id = this.getNextId();
+        super.id= id;
         this.descricao = descricao;
         this.tamanho = tamanho;
         this.cor = cor;
