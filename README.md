@@ -4,4 +4,4 @@ cadastrar produtos e fabricantes,
 Realizar alocações e movimentações dentro de uma verdureira.
 
 
-<div style="width:480px"><iframe allow="fullscreen" frameBorder="0" height="360" src="https://giphy.com/embed/RvAB1XCBjRX2ju30eB/video" width="480"></iframe></div>
+<div style="width:100%"><div style="height:0;padding-bottom:75%;position:relative;width:100%"><iframe allowfullscreen="" frameBorder="0" height="100%" src="https://giphy.com/embed/RvAB1XCBjRX2ju30eB/video" style="left:0;position:absolute;top:0" width="100%"></iframe></div></div>
