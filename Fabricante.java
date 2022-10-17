@@ -1,16 +1,18 @@
 import java.util.ArrayList;
 
-public class Fabricante extends Generic {
+public class Fabricante {
+    public int id;
     public String nome;
+    public ArrayList<Produto> produtos;
 
     public static ArrayList<Fabricante> fabricantes = new ArrayList<>();
 
     public Fabricante(
-         int id,
          String nome
     ) {
-        super.id= id;
+        this.id= this.getNextId();
         this.nome = nome;
+        this.produtos =  new ArrayList<>();
         
         fabricantes.add(this);
     }
@@ -24,16 +26,16 @@ public class Fabricante extends Generic {
         throw new Exception("Produto não existe");
     }
 
-    // private int getNextId() {
-    //     int id = 0;
+    private int getNextId() {
+        int id = 0;
 
-    //     for (Fabricante fabricante : fabricantes) {
-    //         if (fabricante.id > id) {
-    //             id = fabricante.id;
-    //         }
-    //     }
+        for (Fabricante fabricante : fabricantes) {
+            if (fabricante.id > id) {
+                id = fabricante.id;
+            }
+        }
         
-    //     return id + 1;
+        return id + 1;
 
-    // } 
+    } 
 }
