@@ -5,4 +5,5 @@ Realizar alocações e movimentações dentro de uma verdureira.
 
 <p>
   <img src="src\assets\gifs\gato_fruta.gif"/>
+    <img src="src\assets\gifs\gato_verdeura.gif"/>
 </p>
