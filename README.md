@@ -10,8 +10,6 @@ Você precisará ter instalado em sua máquina o <strong>JDK</strong> e um <stro
 <h3>🔧 Instalação:</h3>
 Para obter uma cópia do projeto, você pode clonar o repositório:
 
-bash
-Copy code
 git clone https://github.com/seu-usuario/estacionamento.git
 Para instalar as dependências, não é necessário executar nenhum comando adicional.
 
