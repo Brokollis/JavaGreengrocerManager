@@ -29,5 +29,5 @@ Este projeto se encontra na sua primeira versão.
 
 <h3>✒️ Autores:</h3>
 <ul>
-  <li>Vitor Aguiar - www.linkedin.com/in/vitor-aguiar-ab3937192/</li>
+  <li>Vitor Aguiar - <a href="www.linkedin.com/in/vitor-aguiar-ab3937192/">LinkedIn</a></li>
 </ul>
